@@ -1,12 +1,14 @@
 /**
  * A child class extending abstractSorter, this class implements a bubble sort
+ *
  * @author Andy
+ * @version 3/14/17
  *
  */
 public class BubbleSorter extends AbstractSorter{
 
 	/**
-	 * constructor for a bubbleSort object
+	 * constructor for a BubbleSorter object
 	 * @param size		the size of the array this object will generate
 	 */
 	public BubbleSorter(int size){
@@ -18,6 +20,9 @@ public class BubbleSorter extends AbstractSorter{
 	 * @param array		The array to be sorted
 	 */
 	public <E extends Comparable<E>> void sort(E[] array){
+		if(array == null ){
+			throw new IllegalArgumentException("Array is null in BubbleSorter.sort");
+		}
 		boolean swapped = true;
 		while(swapped == true){
 			swapped = false;
