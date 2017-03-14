@@ -5,7 +5,7 @@
  * The generateArray and printArray methods specifically use Integers for testing purposes
  * 
  * @author Andrew Tarilton
- * @version 3/13/17
+ * @version 3/14/17
  *
  */
 
@@ -25,7 +25,7 @@ public abstract class AbstractSorter{
 	 * @return			a boolean value, whether or not the array is sorted
 	 */
 	public static final <E extends Comparable<E>> boolean isSorted(E[] array){
-		if(array[0] == null){
+		if(array == null){
 			return false;
 		}
 		for(int i = 1; i < array.length; i++){
@@ -43,6 +43,9 @@ public abstract class AbstractSorter{
 	 * @return		The newly generated array
 	 */
 	public static final Integer[] generateArray(int size){
+		if(size < 1){
+			throw new IllegalArgumentException("Size smaller than 1 in generateArray");
+		}
 		Integer[] array = new Integer[size];
 		
 		for(int i = 0; i < size; i ++){
@@ -58,10 +61,14 @@ public abstract class AbstractSorter{
 	 * @param array		The array to be printed
 	 */
 	public static final void printArray(Integer[] array){
-		for(int i = 0; i < array.length; i++){
-			System.out.print(array[i] + " ");
+		try{
+			for(int i = 0; i < array.length; i++){
+				System.out.print(array[i] + " ");
+			}
+			System.out.println();
+		}catch(IllegalArgumentException e){
+			System.out.print("Null array in printArray");
 		}
-		System.out.println();
 	}
 	
 	/**
