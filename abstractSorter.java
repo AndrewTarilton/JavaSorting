@@ -9,7 +9,7 @@
  *
  */
 
-public abstract class AbstractSorter{
+public abstract class abstractSorter{
 
 	protected static int size;		//the size of the array to be generated
 
