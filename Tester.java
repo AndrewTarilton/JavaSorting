@@ -11,7 +11,7 @@ public class Tester {
 		int bubbleSize = 10;
 		System.out.print("BubbleSort before being sorted: ");
 		BubbleSorter bubSort = new BubbleSorter(bubbleSize);
-		Integer[] bubArr = BubbleSorter.generateArray(bubSort.getSize());
+		Integer[] bubArr = BubbleSorter.generateArray();
 		bubSort.printArray(bubArr);
 		System.out.print("BubbleSort after being sorted: ");
 		bubSort.sort(bubArr);
@@ -27,7 +27,7 @@ public class Tester {
 		int selectionSize = 10;
 		System.out.print("SelectionSort before being sorted: ");
 		SelectionSorter selectSort = new SelectionSorter(selectionSize);
-		Integer[] selectArr = SelectionSorter.generateArray(selectSort.getSize());
+		Integer[] selectArr = SelectionSorter.generateArray();
 		selectSort.printArray(selectArr);
 		System.out.print("SelectionSort after being sorted: ");
 		selectSort.sort(selectArr);
@@ -37,5 +37,22 @@ public class Tester {
 		}else{
 			System.out.println("SelectionSort sorted incorrectly");
 		}
+		
+		System.out.println();
+		
+		int insertionSize = 10;
+		System.out.print("InsertionSort before being sorted: ");
+		InsertionSorter insertSort = new InsertionSorter(insertionSize);
+		Integer[] insertArr = InsertionSorter.generateArray();
+		insertSort.printArray(insertArr);
+		System.out.print("InsertionSort after being sorted: ");
+		insertSort.sort(insertArr);
+		InsertionSorter.printArray(insertArr);
+		if(insertSort.isSorted(insertArr)){
+			System.out.println("InsertionSort sorted correctly");
+		}else{
+			System.out.println("InsertionSort sorted incorrectly");
+		}
+		
 	}
 }

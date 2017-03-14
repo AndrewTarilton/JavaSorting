@@ -5,7 +5,7 @@
  * @version 3/14/17
  *
  */
-public class BubbleSorter extends AbstractSorter{
+public class BubbleSorter extends abstractSorter{
 
 	/**
 	 * constructor for a BubbleSorter object
@@ -28,9 +28,7 @@ public class BubbleSorter extends AbstractSorter{
 			swapped = false;
 			for(int i = 1; i < size; i++){
 				if(array[i-1].compareTo(array[i]) > 0){
-					E temp = array[i];
-					array[i] = array[i-1];
-					array[i-1] = temp;
+					swap(array, i-1, i);
 
 					swapped = true;
 				}

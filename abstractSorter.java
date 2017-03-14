@@ -5,20 +5,20 @@
  * The generateArray and printArray methods specifically use Integers for testing purposes
  * 
  * @author Andrew Tarilton
- * @version 3/14/17
+ * @version 3/13/17
  *
  */
 
 public abstract class AbstractSorter{
-	
-	protected int size;		//the size of the array to be generated
-	
+
+	protected static int size;		//the size of the array to be generated
+
 	/**
 	 * This is the sorting method to be implemented by children classes
 	 * @param array 	the array to be sorted. Utilizes generic data types
 	 */
 	abstract public <E extends Comparable<E>> void sort(E[] array);
-	
+
 	/**
 	 * Checks to see if the array is in a sorted state (in ascending order)
 	 * @param array		the array to be checked
@@ -33,35 +33,37 @@ public abstract class AbstractSorter{
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * Generates an array of random, non-unique Integers for testing purposes.
 	 * @param size	The size of the array to be generated
 	 * @return		The newly generated array
 	 */
-	public static final Integer[] generateArray(int size){
+	public static final Integer[] generateArray(){
 		if(size < 1){
 			throw new IllegalArgumentException("Size smaller than 1 in generateArray");
 		}
 		Integer[] array = new Integer[size];
-		
+
 		for(int i = 0; i < size; i ++){
 			Integer toAdd = new Integer((int) (Math.random()*size));
 			array[i] = toAdd;
 		}
-		
+
 		return array;
+
 	}
-	
+
 	/**
 	 * Prints the array for testing purposes
 	 * @param array		The array to be printed
 	 */
 	public static final void printArray(Integer[] array){
 		try{
+
 			for(int i = 0; i < array.length; i++){
 				System.out.print(array[i] + " ");
 			}
@@ -70,7 +72,7 @@ public abstract class AbstractSorter{
 			System.out.print("Null array in printArray");
 		}
 	}
-	
+
 	/**
 	 * getter for the size of the array to be generated
 	 * @return		the size of the array to be generated
@@ -79,5 +81,17 @@ public abstract class AbstractSorter{
 		return size;
 	}
 	
-	
+	/**
+	 * swaps two elements in an array
+	 * @param array		the array containing the elements to be swapped
+	 * @param index1	the index of the first element to be swapped
+	 * @param index2	the index of the second element to be swapped
+	 */
+	public <E> void swap(E[] array, int index1, int index2){
+		E temp = array[index1];
+		array[index1] = array[index2];
+		array[index2] = temp;
+	}
+
+
 }

@@ -31,9 +31,7 @@ public class SelectionSorter extends abstractSorter {
 					min = j;
 				}
 			}
-			E temp = array[i];
-			array[i] = array[min];
-			array[min] = temp;
+			swap(array, i, min);
 		}
 
 	}
