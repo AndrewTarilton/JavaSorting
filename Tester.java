@@ -2,57 +2,92 @@
  * A main class used to test each of the sorting algorithms
  * 
  * @author Andy
- * @version 3/14/17
+ * @version 4/1/17
  *
  */
 public class Tester {
+
 	public static void main(String[] args){
-		
-		int bubbleSize = 10;
+
+		BasicSorter basic = new BasicSorter();
+		int basicSize = 10;
+
 		System.out.print("BubbleSort before being sorted: ");
-		BubbleSorter bubSort = new BubbleSorter(bubbleSize);
-		Integer[] bubArr = BubbleSorter.generateArray();
-		bubSort.printArray(bubArr);
+		Integer[] array = abstractSorter.generateIntegerArray(basicSize);
+		abstractSorter.printArray(array);
 		System.out.print("BubbleSort after being sorted: ");
-		bubSort.sort(bubArr);
-		bubSort.printArray(bubArr);
-		if(bubSort.isSorted(bubArr)){
+		basic.bubbleSort(array);
+		abstractSorter.printArray(array);
+		if(abstractSorter.isSorted(array)){
 			System.out.println("BubbleSort sorted correctly");
 		}else{
 			System.out.println("BubbleSort sorted incorrectly");
 		}
-		
+
 		System.out.println();
-		
-		int selectionSize = 10;
+
+
 		System.out.print("SelectionSort before being sorted: ");
-		SelectionSorter selectSort = new SelectionSorter(selectionSize);
-		Integer[] selectArr = SelectionSorter.generateArray();
-		selectSort.printArray(selectArr);
+		array = abstractSorter.generateIntegerArray(basicSize);
+		abstractSorter.printArray(array);
 		System.out.print("SelectionSort after being sorted: ");
-		selectSort.sort(selectArr);
-		SelectionSorter.printArray(selectArr);
-		if(selectSort.isSorted(selectArr)){
+		basic.selectionSort(array);
+		abstractSorter.printArray(array);
+		if(abstractSorter.isSorted(array)){
 			System.out.println("SelectionSort sorted correctly");
 		}else{
 			System.out.println("SelectionSort sorted incorrectly");
 		}
-		
+
 		System.out.println();
-		
-		int insertionSize = 10;
+
 		System.out.print("InsertionSort before being sorted: ");
-		InsertionSorter insertSort = new InsertionSorter(insertionSize);
-		Integer[] insertArr = InsertionSorter.generateArray();
-		insertSort.printArray(insertArr);
+		array = abstractSorter.generateIntegerArray(basicSize);
+		abstractSorter.printArray(array);
 		System.out.print("InsertionSort after being sorted: ");
-		insertSort.sort(insertArr);
-		InsertionSorter.printArray(insertArr);
-		if(insertSort.isSorted(insertArr)){
+		basic.insertionSort(array);
+		abstractSorter.printArray(array);
+		if(abstractSorter.isSorted(array)){
 			System.out.println("InsertionSort sorted correctly");
 		}else{
 			System.out.println("InsertionSort sorted incorrectly");
 		}
-		
+
+		Heap<Integer> intHeap = new Heap<Integer>();
+		intHeap.extract();
+		intHeap.insert(5);
+		intHeap.insert(3);
+		intHeap.insert(20);
+		intHeap.insert(15);
+		intHeap.insert(10);
+		intHeap.insert(12);
+		intHeap.insert(8);
+		intHeap.insert(2);
+		System.out.println("\nCurrent heap:");
+		intHeap.printHeap();
+		intHeap.extract();
+		intHeap.extract();
+		intHeap.extract();
+		System.out.println("\nHeap after removal:");
+		intHeap.printHeap();
+		intHeap.insert(null);
+
+		System.out.println();
+		System.out.println();
+
+		HeapSorter heap = new HeapSorter();
+		System.out.print("HeapSort before being sorted: ");
+		array = abstractSorter.generateIntegerArray(basicSize);
+		abstractSorter.printArray(array);
+		System.out.print("HeapSort after being sorted: ");
+		heap.heapSort(array);
+		abstractSorter.printArray(array);
+		if(abstractSorter.isSorted(array)){
+			System.out.println("HeapSort sorted correctly");
+		}else{
+			System.out.println("HeapSort sorted incorrectly");
+		}
+
+
 	}
 }
