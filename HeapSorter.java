@@ -1,6 +1,6 @@
 /**
- * a child class extending the BasicSorter in order to build on BasicSorter, this class implements the heap sort
- * it doesn't necessarily need to extend the BasicSorter, except to use methods from abstractSorter, but is a very minor demonstration of how classes can be extended from one another
+ * A child class extending the BasicSorter in order to build on BasicSorter, this class implements the heap sort
+ * It doesn't necessarily need to extend the BasicSorter, except to use methods from abstractSorter, but is a very minor demonstration of how classes can be extended from one another
  * @author Andy
  * @version 4/8/17
  */
@@ -20,7 +20,7 @@ public class HeapSorter extends BasicSorter{
 		while(tail > 0){	//starting from the end of the array and working to the front
 			abstractSorter.swap(array, 0, tail);	//swap the top of the heap with the last element in the array
 			tail--;			
-			restore(array, 0, tail);	//restore the heap property across all indices not utilized by the sorted array
+			restore(array, 0, tail);	//restore the heap property across all indexs not utilized by the sorted array
 		}
 	}
 	
@@ -34,9 +34,9 @@ public class HeapSorter extends BasicSorter{
 		
 		int ptr = start;
 		
-		while(leftChild(ptr) <= end){	//while the ptr indice still has children
-			int child = (2 * ptr) + 1;		//the indice of ptr's left child
-			int toSwap = ptr;				//beginning the first loop with ptr as the parent indice
+		while(leftChild(ptr) <= end){	//while the ptr index still has children
+			int child = (2 * ptr) + 1;		//the index of ptr's left child
+			int toSwap = ptr;				//beginning the first loop with ptr as the parent index
 			if(array[toSwap].compareTo(array[child]) < 0){	
 				toSwap = child;
 			}
@@ -75,7 +75,7 @@ public class HeapSorter extends BasicSorter{
 	}
 	
 	/**
-	 * helper method used to quickly calculate the index of a given indice's left child
+	 * helper method used to quickly calculate the index of a given index's left child
 	 * @param index		the index value of the "parent" element
 	 * @return			the index value of the "parent's" left child
 	 */
