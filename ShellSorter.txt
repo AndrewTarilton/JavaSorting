@@ -1,0 +1,40 @@
+/**
+ * A child class of BasicSorter, this implements a shell sort 
+ * It builds on BasicSorter and, by extension, abstractSorter to share some basic functionality built into abstractSorter
+ * @author Andy
+ * @version 4/10/17
+ *
+ */
+public class ShellSorter extends BasicSorter{
+
+	/**
+	 * the public view for the shell sort algorithm. Its primary function is to call the gap-modified insertion sort where it can
+	 * @param array		the array to be sorted
+	 */
+	public <E extends Comparable<E>> void shellSort(E[] array){
+		int gap = array.length/2;
+		while(gap > 0){			//gap starts at half the length of the array, and becomes smaller and smaller, until it approaches 0
+			for(int i = gap; i < array.length; i++){	//this for loop replaces the for loop from the original insertion sort algorithm
+				insert(array, i, gap);					//it ensures that all valid sub arrays for a given gap size are sorted before the gap is shrunk
+			}
+			if(gap == 2) gap = 1;		//after the gap is shrunk to the point that it sorts on only two subarrays, the gap is simply set to 1
+			else gap = (int) (gap / 2.2);
+		}
+	}
+	
+	/**
+	 * most of an insertion sort algorithm modified to accomodate gap functionality. It 
+	 * @param array		the array to be sorted
+	 * @param ptr		the index of the element currently selected for comparison
+	 * @param gap		the size of the gap
+	 */
+	private <E extends Comparable<E>> void insert(E[] array, int ptr, int gap){
+		E temp = array[ptr];	
+		while((ptr > gap-1) && temp.compareTo(array[ptr-gap]) < 0){		//ptr > gap-1 ensures that array[ptr-gap], the next element in ptr's subarray exists and does not result in an indexOutOfBounds exception
+			array[ptr] = array[ptr-gap];								//the comparison is to check if ptr is out of place. If it is, it's floated through its subarray until it's in it's relative-correct position
+			ptr -= gap;
+		}
+		
+		array[ptr] = temp;
+	}
+}
