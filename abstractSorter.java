@@ -5,7 +5,7 @@
  * The generateArray and printArray methods specifically use Integers for testing purposes
  * 
  * @author Andrew Tarilton
- * @version 4/1/17
+ * @version 4/12/17
  *
  */
 
@@ -46,6 +46,20 @@ public abstract class  abstractSorter {
 		}
 
 		return true;
+	}
+	
+	/**
+	 * creates and returns a hash of the entire array, in order to check the integrity of the array before and after sorting
+	 * @param array		the array to be sorted
+	 * @return			the hash of all of the elements within the array
+	 */
+	public static final <E extends Comparable<E>> int arrayHash(E[] array){
+		int hash = 0;
+		for(int i = 0; i < array.length; i++){
+			hash *= array[i].hashCode();
+		}
+		
+		return hash;
 	}
 
 	/**
